@@ -8,32 +8,32 @@ export const FeedbackOptions = ({
   onLeaveFeedbackBad,
   options }) => {
 
-    const { good, neutral, bad } = options;
+    const keysOptions = Object.keys(options);
 
   return (
     <div className={css.container__feedback}>
       <button
         type="button"
         className={css.btn__feedback}
-        name={good}
+        name={keysOptions[0]}
         onClick={onLeaveFeedbackGood} >
-        Good
+          {keysOptions[0]}
       </button>
 
       <button
         type="button"
         className={css.btn__feedback}
-        name={neutral}
+        name={keysOptions[1]}
         onClick={onLeaveFeedbackNeutral} >
-        Neutral
+          {keysOptions[1]}
       </button>
 
       <button
         type="button"
         className={css.btn__feedback}
-        name={bad}
+        name={keysOptions[2]}
         onClick={onLeaveFeedbackBad} >
-        Bad
+          {keysOptions[2]}
       </button>
 
       {/* {options.map(option => {
@@ -52,11 +52,13 @@ export const FeedbackOptions = ({
   );
 };
 
-// FeedbackOptions.propypes = {
-//     feedback: PropTypes.shape({
-//         good: PropTypes.number.isRequired,
-//         neutral: PropTypes.number.isRequired,
-//         bad: PropTypes.number.isRequired,
-//     }),
-//     onLeaveFeedback: PropTypes.func.isRequired,
-// }
+FeedbackOptions.propypes = {
+    options: PropTypes.shape({
+        good: PropTypes.number.isRequired,
+        neutral: PropTypes.number.isRequired,
+        bad: PropTypes.number.isRequired,
+    }),
+    onLeaveFeedbackGood: PropTypes.func.isRequired,
+    onLeaveFeedbackNeutral: PropTypes.func.isRequired,
+    onLeaveFeedbackBad: PropTypes.func.isRequired,
+}
