@@ -36,18 +36,6 @@ export const FeedbackOptions = ({
           {keysOptions[2]}
       </button>
 
-      {/* {options.map(option => {
-        return (
-          <button
-            key={option}
-            type="button"
-            className={css.btn__feedback}
-            name={option}
-            onClick={onLeaveFeedbackGood} >
-            {option}
-          </button>
-        );
-      })} */}
     </div>
   );
 };
