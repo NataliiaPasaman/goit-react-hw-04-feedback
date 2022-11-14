@@ -9,16 +9,23 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const onLeaveFeedbackGood = event => {
-    setGood(good + 1);
-  };
+  const onLeaveFeedback = evt => {
+    const { name } = evt.currentTarget;
 
-  const onLeaveFeedbackNeutral = event => {
-    setNeutral(neutral + 1);
-  };
+    switch (name) {
+      case 'good':
+        setGood(good + 1);
+        break;
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
 
-  const onLeaveFeedbackBad = event => {
-    setBad(bad + 1);
+      default:
+        return;
+    }
   };
 
   const countTotalFeedback = () => {
@@ -43,9 +50,7 @@ export const App = () => {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={options}
-            onLeaveFeedbackGood={onLeaveFeedbackGood}
-            onLeaveFeedbackNeutral={onLeaveFeedbackNeutral}
-            onLeaveFeedbackBad={onLeaveFeedbackBad}
+            onLeaveFeedback={onLeaveFeedback}
           />
         </Section>
 
